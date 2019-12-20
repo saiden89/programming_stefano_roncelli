@@ -1,1 +1,1 @@
-# Collection of exercises
+# Collection of exercises for Module 2 of Programming
