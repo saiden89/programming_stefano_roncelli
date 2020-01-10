@@ -1,7 +1,2 @@
 
-# Title
-blablablaa
-## Subtitle
-blabla
-testo 
-altrtesto
+# Folder for scripts that actually work

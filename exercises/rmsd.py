@@ -17,11 +17,7 @@ def extract_coords(pdb):
 pdb1 = open('/home/stefano/Università/PB/allegra/model8.pdb', 'r')
 pdb2 = open('/home/stefano/Università/PB/allegra/2.pdb', 'r')
 coord1 = extract_coords(pdb1)
-print(len(coord1))
 coord2 = extract_coords(pdb2)
-print(len(coord2))
-print(coord2)
-
 def rsmd(coo1, coo2):
     sum = 0
     for atom1, atom2 in zip(coo1, coo2):
