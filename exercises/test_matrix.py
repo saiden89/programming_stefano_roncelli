@@ -1,4 +1,4 @@
-matrix = open('./exercises/blosum.txt', 'r')
+matrix = open('../../data/blosum.txt', 'r')
 list = []
 for line in matrix:
     line = line.rstrip()
@@ -12,6 +12,7 @@ print(list)
 for i in range(1, len(list)):
     for j in range(0, len(list[0])):
         dict[list[i][0] + list[0][j]] = list[i][j+1]
+print(dict)
 sum = 0
 for base1, base2 in zip(seq1, seq2):
     sum += int(dict[base1 + base2])
