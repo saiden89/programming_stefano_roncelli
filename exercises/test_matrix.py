@@ -1,4 +1,4 @@
-matrix = open('../../data/blosum.txt', 'r')
+matrix = open('./data/blosum.txt', 'r')
 list = []
 for line in matrix:
     line = line.rstrip()

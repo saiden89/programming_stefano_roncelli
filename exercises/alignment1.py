@@ -16,7 +16,7 @@ def aa_extract(file):
             aa_list.append(line[0])
     return(aa_list)
 
-matrix = open('./exercises/blosum.txt', 'r')
+matrix = open('./data/blosum.txt', 'r')
 aa_list = aa_extract(matrix)
 matrix.close()
 
@@ -29,14 +29,14 @@ matrix.close()
 
 def value_list(matrix):
     values = []
-    for line in file:
-        if line startswith(' ') == False:
-            for i in range(len(line)):
-                if i ==
+    # for line in file:
+    #     if line.startswith(' ') == False:
+    #         for i in range(len(line)):
+    #             if i ==
 
-dict = init_dict(aa_list)
+#dict = init_dict(aa_list)
 
-matrix = open('./exercises/blosum.txt', 'r')
+matrix = open('./data/blosum.txt', 'r')
 def get_score(file, aa1, aa2):
     for line in file:
         line = line.rstrip()
