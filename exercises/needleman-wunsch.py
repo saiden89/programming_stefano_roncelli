@@ -1,3 +1,4 @@
+
 def matrix_dict(matrix_file):
     list = []
     for line in matrix_file:
@@ -16,7 +17,7 @@ matrix.close()
 seq1 = 'ACY'
 seq2 = 'CWWQ'
 
-gap_penalty = 1
+gap_penalty = 2
 scores_matrix = []
 traceback_matrix = []
 row = 0
