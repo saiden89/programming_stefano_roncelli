@@ -28,7 +28,7 @@ same_size = False
 if len_seq1 < len_seq2:
     short = seq1
     long = seq2
-elif len_seq1 < len_seq2:
+elif len_seq1 > len_seq2:
     short = seq2
     long = seq1
 else:
