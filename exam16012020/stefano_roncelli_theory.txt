@@ -1,0 +1,17 @@
+Stefano Roncelli
+
+Scoring an alignment is a crucial task in sequence alignment and is done with
+the purpose of quantifying the goodness of the alignment. The score is indeed used
+in biology to assess whether two (or more) proteins are evolutionally related and if they can derive from a common ancestor.
+A naive way to score an alignment is to increse the total score by +1 when the same residue/base is present in the same position in both sequences. However, this approach doesn't take into account whether the match has occurred by chance or is stastistically relevant. For this reason, a better way to to score is to calculate if the match gas occurred more or less than expected, with the assumption that more than expected matches are more biologically relevant. Numerically we can use the Log odds  ratio, which is the probability of finding randomly the match (PA1A2) divided by the probability of finding these residues in any given position (PA1 x PA2). Usually the  Log odds ration is normalized by a K factor.
+2. In this frame of mind high scores indicate that the alignment is a. Statistically more validated and b. biologically more relevant. B. is used to infer homology between sequences and therefore the retention of the protein function. It is not safe to assume that homology comes only from high scoring alignments. Some protein families, such as globins, have mutated so much that their sequence identities are very low (~15%) even though they are evolutionally related and carry out the same function. Moreover, convergent evolution may have played a role inmaking two proteins similar, even if they are not evolutionall related.
+3. Dayhoff and colleagues derived substitution matrices for scoring alignments using some base assumptions.
+1. Mutations occur in proteins
+2. Not all mutations are maintened, beause many of them are deleterious -> only some (i.e. the ones wee see in sequences today) are ACCEPTED.
+3. There has been a only a single mutation event that changed one AA into another (which is not true but a good approximation)
+4. The probability of A1 -> A2 = A2 -> A1
+5. The position of the residues are independent from one another, they are not influences by nearby residues.
+They used global alignment to infer previous generations on a cluster of ~1500 proteins among ~70 families. The proteins analyzed had arounf 85% sequence indentity. If for example, we ahve two seqeunces 99% identical we can derive a PAM1. PAM2 is PAM1^2 (inferred from PAM2). PAM250 = PAM1^250.
+BLOSUM are made from local alignment and between clusters of proteins that have at most the BLOSUM number (BLOSUM62 at most 62%). We can see how higher BLOSUM numebers are base on higher sequence identitis, the  opposite of PAM. All BLOSUM are base on actual alignemnt, they are not inferred.
+4. Needleman-Wunsch is an exhaustive dynamically programmed algorithm that computes the best possible gapped alignment between two sequences (pairwise). Each i,j position in the scoring matrix has the highest value among three possibiilites 1. Gap in seq1 2. Gap in seq2 3. Match.
+The third value is derived from the substitution matrix used for scoring the alignment.
