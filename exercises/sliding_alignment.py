@@ -19,8 +19,20 @@
 matrix = {'AA': 2, 'AC': -1, 'AT': -1, 'AG': -2, 'CC': 2, 'CT': 0, 'CG': -1,
           'TT': 2, 'TG': -1, 'GG': 2, 'CA': -1, 'TA': -1, 'GA': -2, 'TC': 0,
           'GC': -1, 'GT': -1, }
-seq1 = 'TT'
-seq2 = 'GTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+human = open('./data/titin_hu.txt', 'r')
+mouse = open('./data/titin_mo.txt', 'r')
+seq1 = ''
+seq2 = ''
+for line in human:
+    line = line.rstrip()
+    seq2 += line
+for line in mouse:
+    line = line.rstrip()
+    seq2 += line
+
+
+# seq1 = 'TT'
+# seq2 = 'GTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
 len_seq1 = len(seq1)
 len_seq2 = len(seq2)
 iters = len_seq1 + len_seq2
