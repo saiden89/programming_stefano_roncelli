@@ -34,29 +34,10 @@ matrix = open('./data/blosum.txt', 'r')
 blosum = matrix_dict(matrix)
 matrix.close()
 
-seq1 = ("""MTTQAPTFTQPLQSVVVLEGSTATFEAHISGFPVPEVSWFRDGQVISTSTLPGVQISFSD
-GRAKLTIPAVTKANSGRYSLKATNGSGQATSTAELLVKAETAPPNFVQRLQSMTVRQGSQ
-VRLQVRVTGIPTPVVKFYRDGAEIQSSLDFQISQEGDLYSLLIAEAYPEDSGTYSVNATN
-SVGRATSTAELLVQGEEEVPAKKTKTIVSTAQISESRQTRIEKKIEAHFDARSIATVEMV
-IDGAAGQQLPHKTPPRIPPKPKSRSPTPPSIAAKAQLARQQSPSPIRHSPSPVRHVRAPT
-PSPVRSVSPAARISTSPIRS
+seq1 = ("""M
 """)
 
-seq2 = ("""MTTQAPEEPEEYVVEEKMHFISKKVEVEPAKVPEKKIIPK
-PKVPAKIEEPPPTKVPEPPKKIVPEKKVPAPAPKKVPPAKAPEESKRPVPEKRAPAEEVG
-IEEPPPTKVAERHMKITQEEKVLVAVTKKEAPPRARVPEEPKKVAPEERFPKLKPRREEE
-PPAKVTEVRKRAVKEEKVSIEVPKREPRPTKEVTVTEEKKWSYTREEETVSEHREEEYED
-YEDYEEYKEFEEYEPTEEYDQYDEYAEREVEHYEEHEEYVTEPKKPVPVKPAQEPVPAKP
-KAPPPKVLKKAVPEEKAPLPIQKKLKPLPPKAPEEPKKVVEEKIQISITKREKQQVTEPV
-AKVPMKPKRVVPEAKIPAPTKEVAVPVRVPGVPKKRELEEVVVFKEEVEAHEEYIVEEEE
-EYVHEEEYVHKEEYVHEEEYVHKEEYIHEEEEHLHEEEETIAEEEVVPVAPVKVPVVPKK
-PVPEEKKPVPVPKKKEAPPAKVPEIPKKPEEKVPVPIPKKEKAPPAKVPEVPKKPVPEEK
-PPVPVPKKVEPPPAKVPEVPKKPVPEKKVPAPTPKKVEAPPAKVPEVPKKPIPEEKKPTA
-LLKKMEAPPPKAPKKREVVPVPVALPREEEEEEVPFEEVPEEEILPEEEVPSEEEAPPEE
-VPPEEEEVLPEEEEVLPEEEEVLPEEEEVQPEEEALPEIKPKVPKPAPVPKKTVPEKKVP
-VPVPKKVEPPPPPKVPEIKKKVPEKKVVVPKKEEAPPTKVPEVSKKVEERRIIPPKEEEV
-PPAEVYEEAEEPTPEEIPEEPPSIEEEEIVEEEEEEEEVLPPRAPEVVKKAVPEAPTPVP
-KKAEAPPAKVPKK
+seq2 = ("""AAAAAAM
 """)
 
 seq1 = seq1.replace('\n', '')
@@ -96,26 +77,25 @@ for row in range(1, n):
 ali1 = ''
 ali2 = ''
 equal = ''
-row = n -1
-col = m -1
-while row != 0:
-    while col != 0:
-        if traceback_matrix[row][col] == 'u':
-            ali1 += '-'
-            ali2 += seq2[row - 1]
-            equal += ' '
-            row -= 1
-        elif traceback_matrix[row][col] == 'l':
-            ali1 += seq1[col - 1]
-            ali2 += '-'
-            equal += ' '
-            col -= 1
-        else:
-            ali1 += seq1[col - 1]
-            ali2 += seq2[row - 1]
-            equal += '|'
-            col -= 1
-            row -= 1
+row = n - 1
+col = m - 1
+while row != 0 or col != 0:
+    if traceback_matrix[row][col] == 'u':
+        ali1 += '-'
+        ali2 += seq2[row - 1]
+        equal += ' '
+        row -= 1
+    elif traceback_matrix[row][col] == 'l':
+        ali1 += seq1[col - 1]
+        ali2 += '-'
+        equal += ' '
+        col -= 1
+    else:
+        ali1 += seq1[col - 1]
+        ali2 += seq2[row - 1]
+        equal += '|'
+        col -= 1
+        row -= 1
 ali1 = ali1[::-1]
 ali2 = ali2[::-1]
 equal = equal[::-1]
