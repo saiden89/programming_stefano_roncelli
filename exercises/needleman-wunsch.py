@@ -7,16 +7,10 @@ def score.m(s1, s2, S, d):
     iteration of i,j
     return F
 '''
-
-
-# bases = 'ATGC'
-# nucleo_matrix = {}
-# for row in bases:
-#     for col in bases:
-#         if row == col:
-#             nucleo_matrix[row + col] =  1
-#         else:
-#             nucleo_matrix[row + col] = -1
+'''
+The following function takes as input a substitution matrix file and returns
+a dictionary to be used by the algorithm.
+'''
 
 def matrix_dict(matrix_file):
     list = []
@@ -34,9 +28,8 @@ matrix = open('./data/blosum.txt', 'r')
 blosum = matrix_dict(matrix)
 matrix.close()
 
-seq1 = ("""M
+seq1 = ("""AGAGTCAGTCAGTCAGTCAGCTAGCAGCACGTA
 """)
-
 seq2 = ("""AAAAAAM
 """)
 
